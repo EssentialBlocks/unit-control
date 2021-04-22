@@ -1,6 +1,3 @@
-import React from "react";
-import PropTypes from "prop-types";
-
 /**
  * WordPress dependencies
  */
@@ -22,14 +19,5 @@ const UnitControl = ({ selectedUnit, unitTypes, onClick }) => (
     ))}
   </ButtonGroup>
 );
-
-UnitControl.propTypes = {
-  selectedUnit: PropTypes.string.isRequired,
-  unitTypes: PropTypes.shape({
-    label: PropTypes.string,
-    value: PropTypes.string,
-  }),
-  onClick: PropTypes.func.isRequired,
-};
 
 export default UnitControl;
