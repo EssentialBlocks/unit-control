@@ -11,8 +11,9 @@ const UnitControl = ({ selectedUnit, unitTypes, onClick }) => (
 	<ButtonGroup className="eb-unit-control-btn-group">
 		{unitTypes.map((unit) => (
 			<Button
-				className={`eb-unit-control-btn ${
-					unit.value === selectedUnit && "eb-unit-active"
+				key={unit.value}
+				className={`eb-unit-control-btn${
+					unit.value === selectedUnit ? " eb-unit-active" : ""
 				}`}
 				isSmall
 				isPrimary={unit.value === selectedUnit}
@@ -26,10 +27,12 @@ const UnitControl = ({ selectedUnit, unitTypes, onClick }) => (
 
 UnitControl.propTypes = {
 	selectedUnit: PropTypes.string.isRequired,
-	unitTypes: PropTypes.shape({
-		label: PropTypes.string,
-		value: PropTypes.string,
-	}),
+	unitTypes: PropTypes.arrayOf(
+		PropTypes.shape({
+			label: PropTypes.string,
+			value: PropTypes.string,
+		})
+	),
 	onClick: PropTypes.func.isRequired,
 };
 
